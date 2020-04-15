@@ -6,8 +6,15 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
-  pass
-
+  count = 0
+  if n <= 0:
+    return 1
+  else:
+    arr = [1,1,2]
+    for num in range(3, n+1):
+      count = arr[-3]+arr[-2]+arr[-1]
+      arr.append(count)
+  return count
 if __name__ == "__main__":
   if len(sys.argv) > 1:
     num_cookies = int(sys.argv[1])
