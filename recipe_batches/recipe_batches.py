@@ -3,7 +3,18 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+
+  max_batches = None
+  for ingredient, needed in recipe.items():
+    have = ingredients.get(ingredient, 0)
+    can_make = have // needed
+    if max_batches is None:
+      max_batches = can_make
+    if can_make < max_batches:
+      max_batches = can_make
+
+  return max_batches
+
 
 
 if __name__ == '__main__':
